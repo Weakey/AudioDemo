@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+    signingConfigs {
+        aospPlatform {
+            keyAlias 'aosp-platform'
+            keyPassword 'android'
+            storeFile file('../keystores/aosp-platform.keystore')
+            storePassword 'android'
+        }
+    }
+    defaultConfig {
+        applicationId "com.nousdtech.audiodemo"
+        minSdkVersion 26
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        configurations.all {
+            resolutionStrategy {
+                force 'androidx.lifecycle:lifecycle process:2.3.1'
+                force 'androidx.appcompat:appcompat:1.3.1'
+                force 'androidx.appcompat:appcompat-resources:1.3.1'
+                // force 'androidx.emoji2:emoji2-views-helper:1.0.0', This won't work, because it is made to work with Android SDK version 31 only
+                force 'androidx.core:core:1.6.0'
+                force 'androidx.lifecycle:lifecycle-runtime:2.3.1'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'com.github.WrichikBasu:AudioFocusController:v2.1'
+    implementation 'me.jahnen.libaums:core:0.9.1'
+}
