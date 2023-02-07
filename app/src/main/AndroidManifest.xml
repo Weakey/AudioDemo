@@ -24,18 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider
-            android:name="me.jahnen.libaums.storageprovider.UsbDocumentProvider"
-            android:authorities="me.jahnen.libaums.storageprovider.documents"
-            android:exported="true"
-            android:grantUriPermissions="true"
-            android:permission="android.permission.MANAGE_DOCUMENTS"
-            android:enabled="@bool/isAtLeastKitKat">
-            <intent-filter>
-                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
-            </intent-filter>
-        </provider>
-
     </application>
 
 </manifest>

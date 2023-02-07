@@ -54,4 +54,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.github.WrichikBasu:AudioFocusController:v2.1'
     implementation 'me.jahnen.libaums:core:0.9.1'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.7'
 }
